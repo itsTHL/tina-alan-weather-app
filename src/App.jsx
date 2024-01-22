@@ -4,7 +4,8 @@ import { uid } from "uid";
 import Form from "./components/Form";
 
 function App() {
-  const [activities, setActivities] = useState("whatever");
+  const [activities, setActivities] = useState("");
+  console.log(activities);
 
   function handleAddActivity(newActivity) {
     setActivities([...activities, { ...newActivity, id: uid() }]);
