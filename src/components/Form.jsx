@@ -10,7 +10,7 @@ export default function Form({ onAddActivity }) {
   }
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <h1>Add new Activity</h1>
       <label htmlFor="name">
         Name:
@@ -23,6 +23,6 @@ export default function Form({ onAddActivity }) {
       </label>
       <br />
       <button type="submit">Submit</button>
-    </>
+    </form>
   );
 }
