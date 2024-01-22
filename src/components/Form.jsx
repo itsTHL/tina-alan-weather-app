@@ -6,20 +6,22 @@ export default function Form({ onAddActivity }) {
     console.log(data);
     event.target.reset();
     event.target.elements.name.focus();
+    onAddActivity(data);
   }
-
-  onAddActivity(data);
 
   return (
     <>
-      <h1>I am a activity</h1>
+      <h1>Add new Activity</h1>
       <label htmlFor="name">
+        Name:
         <input name="name" type="text" id="name" />
       </label>
-
+      <br />
       <label htmlFor="isForGoodWeather">
+        Good-weather activity:
         <input name="isForGoodWeather" type="checkbox" id="isForGoodWeather" />
       </label>
+      <br />
       <button type="submit">Submit</button>
     </>
   );
