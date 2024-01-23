@@ -20,7 +20,6 @@ function App() {
           "https://example-apis.vercel.app/api/weather"
         );
         const weatherData = await response.json();
-        console.log("Fetched Data as JSON: ", weatherData);
 
         setWeatherStatus(weatherData);
 
