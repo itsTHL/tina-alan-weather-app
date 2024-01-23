@@ -1,3 +1,17 @@
+:root {
+  --lightBlue: rgb(143, 238, 255);
+  --blue: rgb(97, 168, 223);
+  --darkBlue: rgb(31, 104, 182);
+  --white: rgb(249, 253, 255);
+  --whiteTransparent: rgba(249, 253, 255, 0.346);
+  --whitenotSoTransparent: rgba(249, 253, 255, 0.611);
+  --dark: black;
+  --notSoDark: #242424;
+  --lightShadow: hsla(222, 37%, 39%, 0.2);
+  --darkShadow: hsla(222, 37%, 39%, 0.3);
+  --font: "Helvetica";
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -6,8 +20,14 @@
 }
 
 body {
-  background-color: rgb(242, 233, 220);
-  color: black;
+  font-family: var(--font);
+  /* background-color: rgb(242, 233, 220); */
+  /* background: linear-gradient(0deg, var(--blue) 0%, var(--lightBlue) 100%); gradient */
+  background-image: url("../src/assets/bg-goodWeather.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  color: var(--notSoDark);
 }
 
 .logo {
@@ -20,7 +40,7 @@ body {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em var(--dark));
 }
 
 @keyframes logo-spin {
@@ -57,46 +77,63 @@ body {
 }
 
 form {
-  border: solid 1px rgb(227, 219, 207);
-  border-radius: 40px;
+  border: solid 1px var(--whiteTransparent);
+  background-color: var(--whiteTransparent);
+  border-radius: 30px;
   padding: 5px 20px;
   box-shadow: 0px 0px 20px hsla(30, 100%, 30%, 0.1);
   transition: all ease 0.2s;
+  backdrop-filter: blur(10px);
 }
 
 form:hover {
-  border-color: white;
+  border-color: var(--white);
 }
 
 li {
-  border: solid #888 1px;
-  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
   margin-bottom: 5px;
   border-radius: 15px;
   transition: all ease 0.3s;
-  box-shadow: 1px 1px 3px hsla(30, 100%, 30%, 0.218);
+  border: solid var(--whiteTransparent) 1px;
+  background-color: var(--whiteTransparent);
+  box-shadow: 1px 1px 3px var(--lightShadow);
+  backdrop-filter: blur(8px);
 }
 
 li:hover {
-  background-color: rgb(255, 244, 141);
-  box-shadow: 1px 1px 10px hsla(30, 100%, 30%, 0.434);
+  background-color: var(--whitenotSoTransparent);
+  box-shadow: 1px 1px 15px var(--darkShadow);
+  border-color: var(--white);
 }
 
 #name {
+  font-size: medium;
   min-height: 30px;
   width: 250px;
   border-radius: 5px;
   border: none;
   margin-left: 10px;
+  padding: 0;
 }
 
 #isForGoodWeather {
   align-self: center;
   margin: 10px;
+  accent-color: var(--lightBlue);
+  transform: scale(2);
 }
 
-button {
+#submitBtn {
   margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+span {
+  margin: 0 10px;
 }
 
 section {
@@ -104,4 +141,12 @@ section {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: flex-start;
+}
+
+#closeButton {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
 }
