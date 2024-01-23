@@ -4,8 +4,9 @@
   --darkBlue: rgb(31, 104, 182);
   --white: rgb(249, 253, 255);
   --whiteTransparent: rgba(249, 253, 255, 0.346);
-  --whitenotSoTransparent: rgba(249, 253, 255, 0.611);
+  --whitenotSoTransparent: rgba(249, 253, 255, 0.45);
   --dark: black;
+  --darkTransparent: rgba(0, 0, 0, 0.466);
   --notSoDark: #242424;
   --lightShadow: hsla(222, 37%, 39%, 0.2);
   --darkShadow: hsla(222, 37%, 39%, 0.3);
@@ -17,6 +18,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  max-width: 320px;
 }
 
 body {
@@ -79,11 +81,11 @@ body {
 form {
   border: solid 1px var(--whiteTransparent);
   background-color: var(--whiteTransparent);
+  backdrop-filter: blur(10px);
   border-radius: 30px;
   padding: 5px 20px;
   box-shadow: 0px 0px 20px hsla(30, 100%, 30%, 0.1);
   transition: all ease 0.2s;
-  backdrop-filter: blur(10px);
 }
 
 form:hover {
@@ -100,31 +102,71 @@ li {
   transition: all ease 0.3s;
   border: solid var(--whiteTransparent) 1px;
   background-color: var(--whiteTransparent);
+  backdrop-filter: blur(10px);
   box-shadow: 1px 1px 3px var(--lightShadow);
-  backdrop-filter: blur(8px);
 }
 
 li:hover {
   background-color: var(--whitenotSoTransparent);
-  box-shadow: 1px 1px 15px var(--darkShadow);
   border-color: var(--white);
+  box-shadow: 1px 1px 15px var(--darkShadow);
+}
+label {
+  display: flex;
+  align-items: center;
+}
+
+h4 {
+  font-size: x-large;
+  color: var(--white);
+  text-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.4);
 }
 
 #name {
   font-size: medium;
   min-height: 30px;
-  width: 250px;
+  width: 200px;
   border-radius: 5px;
   border: none;
   margin-left: 10px;
-  padding: 0;
+  padding-left: 8px;
+}
+.theWeather {
+  border: solid 1px var(--whiteTransparent);
+  background-color: var(--whiteTransparent);
+  backdrop-filter: blur(10px);
+  border-radius: 70px;
+  padding: 20px;
+  box-shadow: 0px 0px 20px hsla(0, 0%, 0%, 0.15);
+  transition: all ease 0.2s;
 }
 
 #isForGoodWeather {
-  align-self: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
   margin: 10px;
-  accent-color: var(--lightBlue);
-  transform: scale(2);
+  vertical-align: middle;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+#isForGoodWeather:checked {
+  background-color: var(--whiteTransparent);
+}
+
+#isForGoodWeather:checked::before {
+  content: "\2713"; /* Unicode character for checkmark */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em; /* Adjust the size of the checkmark */
+  color: var(--notSoDark); /* Adjust the color of the checkmark */
 }
 
 #submitBtn {
