@@ -20,12 +20,20 @@ function App() {
           "https://example-apis.vercel.app/api/weather"
         );
         const weatherData = await response.json();
+        console.log("Fetched Data as JSON: ", weatherData);
 
         setWeatherStatus(weatherData);
+
+        const body = document.getElementById("body");
+        body.style.backgroundImage =
+          weatherData.isGoodWeather === true
+            ? "url('../src/assets/bg-goodWeather.jpg')"
+            : "url('../src/assets/bg-badWeather.jpg')";
       } catch (error) {
         console.error("Could not fetch data: ", error);
       }
     }
+
     fetchWeatherData();
 
     const intervalId = setInterval(fetchWeatherData, 5000);
