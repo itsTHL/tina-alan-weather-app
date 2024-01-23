@@ -45,6 +45,10 @@ function App() {
     (activity) => activity.isForGoodWeather === isGoodWeather
   );
 
+  function handleDeleteActivity(key) {
+    setActivities(activities.filter((activity) => activity.key !== key));
+  }
+
   return (
     <>
       {/* add heading to display condition emoji and temperature */}
@@ -52,7 +56,11 @@ function App() {
         <span>{weatherStatus.condition}</span>
         <span>{weatherStatus.temperature}</span>
       </h1>
-      <List activities={filteredActivities} weatherStatus={isGoodWeather} />
+      <List
+        activities={filteredActivities}
+        weatherStatus={isGoodWeather}
+        onDeleteActivity={handleDeleteActivity}
+      />
       <Form onAddActivity={handleAddActivity} />
     </>
   );
