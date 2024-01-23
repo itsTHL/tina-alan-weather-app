@@ -124,6 +124,7 @@ li:hover {
   align-self: center;
   margin: 10px;
   accent-color: var(--lightBlue);
+  transform: scale(2);
 }
 
 #submitBtn {
