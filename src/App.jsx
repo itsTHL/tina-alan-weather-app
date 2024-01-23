@@ -27,8 +27,8 @@ function App() {
         const body = document.getElementById("body");
         body.style.backgroundImage =
           weatherData.isGoodWeather === true
-            ? "url('../src/assets/bg-goodWeather.jpg')"
-            : "url('../src/assets/bg-badWeather.jpg')";
+            ? "url('/bg-goodWeather.jpg')"
+            : "url('/bg-badWeather.jpg')";
       } catch (error) {
         console.error("Could not fetch data: ", error);
       }
