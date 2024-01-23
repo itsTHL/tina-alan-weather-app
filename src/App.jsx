@@ -60,7 +60,7 @@ function App() {
       {/* add heading to display condition emoji and temperature */}
       <h1>
         <span>{weatherStatus.condition}</span>
-        <span>{weatherStatus.temperature}</span>
+        <span>{weatherStatus.temperature}°C</span>
       </h1>
       <List
         activities={filteredActivities}
