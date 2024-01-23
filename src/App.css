@@ -3,7 +3,8 @@
   --blue: rgb(97, 168, 223);
   --darkBlue: rgb(31, 104, 182);
   --white: rgb(249, 253, 255);
-  --whiteTransparent: rgba(249, 253, 255, 0.451);
+  --whiteTransparent: rgba(249, 253, 255, 0.346);
+  --whitenotSoTransparent: rgba(249, 253, 255, 0.611);
   --dark: black;
   --notSoDark: #242424;
   --lightShadow: hsla(222, 37%, 39%, 0.2);
@@ -21,7 +22,11 @@
 body {
   font-family: var(--font);
   /* background-color: rgb(242, 233, 220); */
-  background: linear-gradient(0deg, var(--blue) 0%, var(--lightBlue) 100%);
+  /* background: linear-gradient(0deg, var(--blue) 0%, var(--lightBlue) 100%); gradient */
+  background-image: url("../src/assets/bg-goodWeather.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
   color: var(--dark);
 }
 
@@ -86,6 +91,7 @@ form {
   padding: 5px 20px;
   box-shadow: 0px 0px 20px hsla(30, 100%, 30%, 0.1);
   transition: all ease 0.2s;
+  backdrop-filter: blur(8px);
 }
 
 form:hover {
@@ -106,7 +112,7 @@ li {
 }
 
 li:hover {
-  background-color: var(--white);
+  background-color: var(--whitenotSoTransparent);
   box-shadow: 1px 1px 15px var(--darkShadow);
   border-color: var(--white);
 }
