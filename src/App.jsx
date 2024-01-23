@@ -11,6 +11,7 @@ function App() {
   });
 
   const [weatherStatus, setWeatherStatus] = useState(null);
+  const [activitiesList, setActivitiesList] = useState(false);
 
   // fetch weather API on initial render only
   useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
         console.log("Fetched Data as JSON: ", weatherData);
 
         setWeatherStatus(weatherData);
+        setActivitiesList(true);
 
         const body = document.getElementById("body");
         body.style.backgroundImage =
