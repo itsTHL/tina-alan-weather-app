@@ -14,7 +14,7 @@ function App() {
 
   // fetch weather API on initial render only
   useEffect(() => {
-    async function startFetching() {
+    async function fetchWeatherData() {
       try {
         const response = await fetch(
           "https://example-apis.vercel.app/api/weather"
@@ -26,7 +26,13 @@ function App() {
         console.error("Could not fetch data: ", error);
       }
     }
-    startFetching();
+    fetchWeatherData();
+
+    const intervalId = setInterval(fetchWeatherData, 5000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, []); // <-- on initial render only
 
   function handleAddActivity(newActivity) {
