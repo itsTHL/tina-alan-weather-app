@@ -8,7 +8,6 @@ export default function Form({ onAddActivity }) {
       name: formElements.name.value,
       isForGoodWeather: formElements.isForGoodWeather.checked,
     };
-    console.log(newActivity);
 
     onAddActivity(newActivity);
 

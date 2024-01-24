@@ -21,8 +21,6 @@ function App() {
   );
 
   const apiURL = `https://example-apis.vercel.app/api/weather/${currentLocation}`;
-  console.log(apiURL);
-  console.log(currentLocation);
 
   // fetch weather API on initial render only
   useEffect(() => {
@@ -54,7 +52,16 @@ function App() {
   }, [apiURL]);
 
   function handleAddActivity(newActivity) {
-    setActivities([...activities, { ...newActivity, key: uid() }]);
+    const isActivityThere = activities.some(
+      (activity) =>
+        activity.name.toLowerCase() === newActivity.name.toLowerCase()
+    );
+
+    if (isActivityThere) {
+      alert(`You already added this activity!`);
+    } else {
+      setActivities([...activities, { ...newActivity, key: uid() }]);
+    }
   }
 
   if (!weatherStatus) {
