@@ -12,6 +12,7 @@ function App() {
   });
 
   const [weatherStatus, setWeatherStatus] = useState(null);
+  const [activitiesList, setActivitiesList] = useState(false);
   const [currentLocation, setCurrentLocation] = useLocalStorageState(
     "location",
     {
@@ -31,6 +32,7 @@ function App() {
         const weatherData = await response.json();
 
         setWeatherStatus(weatherData);
+        setActivitiesList(true);
 
         const body = document.getElementById("body");
         body.style.backgroundImage =
