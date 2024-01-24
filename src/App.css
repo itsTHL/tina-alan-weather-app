@@ -219,7 +219,13 @@ nav {
   box-shadow: 1px 1px 15px var(--darkShadow);
 }
 
-.locationBtn:focus {
+.locationBtn_focus {
+  background-color: var(--whitenotSoTransparent);
+  color: var(--notSoDark);
+  border: none;
+}
+
+.locationBtnStart {
   background-color: var(--whitenotSoTransparent);
   color: var(--notSoDark);
   border: none;
