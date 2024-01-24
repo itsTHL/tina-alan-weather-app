@@ -13,6 +13,7 @@ export default function Form({ onAddActivity }) {
 
     event.target.reset();
     event.target.elements.name.focus();
+    console.log(newActivity);
   }
 
   return (
