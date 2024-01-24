@@ -22,7 +22,7 @@ export default function Form({ onAddActivity }) {
       <section>
         <label htmlFor="name">
           Name:
-          <input name="name" type="text" id="name" />
+          <input name="name" type="text" id="name" required />
         </label>
         <br />
         <label htmlFor="isForGoodWeather">
