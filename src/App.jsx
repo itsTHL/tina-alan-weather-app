@@ -4,6 +4,7 @@ import "./App.css";
 import { uid } from "uid";
 import Form from "./components/Form";
 import List from "./components/List";
+import NavButtons from "./components/NavButtons";
 
 function App() {
   const [activities, setActivities] = useLocalStorageState("activity", {
@@ -11,16 +12,23 @@ function App() {
   });
 
   const [weatherStatus, setWeatherStatus] = useState(null);
+  const [currentLocation, setCurrentLocation] = useLocalStorageState(
+    "location",
+    {
+      defaultValue: "europe",
+    }
+  );
+
+  const apiURL = `https://example-apis.vercel.app/api/weather/${currentLocation}`;
+  console.log(apiURL);
+  console.log(currentLocation);
 
   // fetch weather API on initial render only
   useEffect(() => {
     async function fetchWeatherData() {
       try {
-        const response = await fetch(
-          "https://example-apis.vercel.app/api/weather"
-        );
+        const response = await fetch(apiURL);
         const weatherData = await response.json();
-        console.log("Fetched Data as JSON: ", weatherData);
 
         setWeatherStatus(weatherData);
 
@@ -41,7 +49,7 @@ function App() {
     return () => {
       clearInterval(intervalId);
     };
-  }, []); // <-- on initial render only
+  }, [apiURL]);
 
   function handleAddActivity(newActivity) {
     setActivities([...activities, { ...newActivity, key: uid() }]);
@@ -63,10 +71,20 @@ function App() {
     setActivities(activities.filter((activity) => activity.key !== key));
   }
 
+  function handleLocation(location) {
+    setCurrentLocation(location);
+  }
+
   return (
     <>
+      <nav>
+        <NavButtons
+          locations={["europe", "arctic", "sahara", "rainforest"]}
+          onClick={handleLocation}
+        />
+      </nav>
       {/* add heading to display condition emoji and temperature */}
-      <h1 className="theWeather">
+      <h1>
         <span>{weatherStatus.condition}</span>
         <span>{weatherStatus.temperature}°C</span>
       </h1>
