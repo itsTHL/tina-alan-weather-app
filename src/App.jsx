@@ -21,10 +21,7 @@ function App() {
   );
 
   const apiURL = `https://example-apis.vercel.app/api/weather/${currentLocation}`;
-  console.log(apiURL);
-  console.log(currentLocation);
 
-  // fetch weather API on initial render only
   useEffect(() => {
     async function fetchWeatherData() {
       try {
@@ -54,7 +51,19 @@ function App() {
   }, [apiURL]);
 
   function handleAddActivity(newActivity) {
-    setActivities([...activities, { ...newActivity, key: uid() }]);
+    const isActivityThere = activities.some(
+      (activity) =>
+        activity.name.toLowerCase() === newActivity.name.toLowerCase()
+    );
+
+    if (isActivityThere) {
+      alert(`You already added this activity!`);
+    } else {
+      setActivities([
+        ...activities,
+        { ...newActivity, key: uid(), currentLocation: currentLocation },
+      ]);
+    }
   }
 
   if (!weatherStatus) {
@@ -72,6 +81,7 @@ function App() {
   function handleDeleteActivity(key) {
     setActivities(activities.filter((activity) => activity.key !== key));
   }
+  console.log(activities);
 
   function handleLocation(location) {
     setCurrentLocation(location);
@@ -94,6 +104,7 @@ function App() {
       <List
         activities={filteredActivities}
         weatherStatus={isGoodWeather}
+        currentLocation={currentLocation}
         onDeleteActivity={handleDeleteActivity}
       />
       <Form onAddActivity={handleAddActivity} />

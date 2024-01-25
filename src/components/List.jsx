@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
 
-export default function List({ activities, weatherStatus, onDeleteActivity }) {
+export default function List({
+  activities,
+  weatherStatus,
+  currentLocation,
+  onDeleteActivity,
+}) {
   const [activitiesList, setActivitiesList] = useState(false);
+
+  const filteredActivitiesLocation = activities.filter(
+    (activity) => activity.currentLocation === currentLocation
+  );
 
   useEffect(() => {
     setActivitiesList(activities.length > 0);
@@ -21,7 +30,7 @@ export default function List({ activities, weatherStatus, onDeleteActivity }) {
     <>
       <h4>Great idea! Wanna add more to the list?</h4>
       <ul className="list">
-        {activities.map(({ key, name }) => (
+        {filteredActivitiesLocation.map(({ key, name }) => (
           <li key={key}>
             {name}
             <button
