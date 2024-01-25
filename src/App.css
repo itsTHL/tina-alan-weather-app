@@ -206,21 +206,24 @@ nav {
 
 .locationBtn {
   background-color: transparent;
-  padding: 0 5px;
+  padding: 0 3px;
   margin: 0 2px;
   color: var(--white);
   font-variant-caps: all-petite-caps;
+  font-size: 14px;
   transition: 0.3s ease-out;
 }
 
 .locationBtn:hover {
-  background-color: var(--whiteTransparent);
-  border-color: var(--whiteTransparent);
-  box-shadow: 1px 1px 15px var(--darkShadow);
+  /* background-color: var(--whiteTransparent); */
+  border-color: transparent;
+  /* box-shadow: 1px 1px 15px var(--darkShadow); */
+  font-size: 17px;
 }
 
-.locationBtn:focus {
-  background-color: var(--whitenotSoTransparent);
-  color: var(--notSoDark);
-  border: none;
+.locationBtn--focus {
+  /* background-color: var(--whitenotSoTransparent); */
+  /* border: none; */
+  color: var(--darkTransparent);
+  font-size: 17px;
 }
