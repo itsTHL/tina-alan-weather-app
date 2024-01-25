@@ -1,11 +1,13 @@
-export default function NavButtons({ locations, onClick }) {
+export default function NavButtons({ locations, onClick, currentLocation }) {
   return (
     <>
       {locations.map((location) => (
         <button
           key={location}
           type="button"
-          className="locationBtn"
+          className={
+            location === currentLocation ? "locationBtn--focus" : "locationBtn"
+          }
           onClick={() => onClick(location)}
         >
           {location}

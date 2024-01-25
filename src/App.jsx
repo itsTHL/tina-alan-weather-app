@@ -83,10 +83,11 @@ function App() {
         <NavButtons
           locations={["europe", "arctic", "sahara", "rainforest"]}
           onClick={handleLocation}
+          currentLocation={currentLocation}
         />
       </nav>
       {/* add heading to display condition emoji and temperature */}
-      <h1>
+      <h1 className="theWeather">
         <span>{weatherStatus.condition}</span>
         <span>{weatherStatus.temperature}°C</span>
       </h1>
