@@ -8,12 +8,12 @@ export default function Form({ onAddActivity }) {
       name: formElements.name.value,
       isForGoodWeather: formElements.isForGoodWeather.checked,
     };
-    console.log(newActivity);
 
     onAddActivity(newActivity);
 
     event.target.reset();
     event.target.elements.name.focus();
+    console.log(newActivity);
   }
 
   return (
@@ -22,7 +22,7 @@ export default function Form({ onAddActivity }) {
       <section>
         <label htmlFor="name">
           Name:
-          <input name="name" type="text" id="name" />
+          <input name="name" type="text" id="name" required />
         </label>
         <br />
         <label htmlFor="isForGoodWeather">
